@@ -1,19 +1,22 @@
 const functions = require("./functions");
+// const userAccessToken =
+//   "EAAOvYeYLMXgBAI2zBxaZCSznVzEWtG40JbQMHkb5Tc7Qvn5l1vYuTk9MjEmdADN7YzCqAQDLUsTmNjlkrM5S3OKZB8SLhg4hFqnfJz3EUKUMUu19x6T0wOqKCSm7hvtdZA1XOCIcjSxKOFGElEK9vi04h6cn7Oom2zphDISmns3sZAKhWtiDKHyeMVAqTD6tEdsZCNDXjGgZDZD";
 const userAccessToken =
-  "EAAOvYeYLMXgBAI2zBxaZCSznVzEWtG40JbQMHkb5Tc7Qvn5l1vYuTk9MjEmdADN7YzCqAQDLUsTmNjlkrM5S3OKZB8SLhg4hFqnfJz3EUKUMUu19x6T0wOqKCSm7hvtdZA1XOCIcjSxKOFGElEK9vi04h6cn7Oom2zphDISmns3sZAKhWtiDKHyeMVAqTD6tEdsZCNDXjGgZDZD";
-const catalogId = "214542249143457";
+  "EAAOvYeYLMXgBAC1je56QWvMa1IhrhthyTYsjoVkVTBiybvfiHujbeTt8cFk6wkCOrIBGDZCgQFXP0GoZAQ8iJh4NJaZBUZCbBRIVFNI42jr8g5tATpIBSk2pfp7bnUn0XbbA7SBcQ6WXX1Khr3lSX1bD5DMkKu5iEwlga9QhFEAdZCfusSiba";
+const catalogId = "889207771614903";
 const baseUrl = "https://graph.facebook.com/v9.0";
 
-/** Product Items API */
+/** Product Catalog API */
 //Get all product list
-
+/*
 test("should get list of products", async () => {
   const config = {
     method: "GET",
-    url: `${baseUrl}/${catalogId}/products?fields=["category", "name", "availability", "brand", "description", "price", "currency", "condition", "url", "image_url", "retailer_product_group_id", "custom_label_0", "custom_label_1"]`,
+    url: `${baseUrl}/${catalogId}/products`,
     headers: { "Content-Type": "application/json" },
     params: {
-      limit: 200,
+      limit: 1000,
+      fields: "category,name,availability,brand,description,price,currenct,condition,url,image_url,retailer_product_group_id,custom_label_0,custom_label_1,product_sets{id}",
       access_token: userAccessToken,
       
     }
@@ -22,7 +25,7 @@ test("should get list of products", async () => {
   console.log(res);
   //expect(res.name).toEqual("Fendi Rusly");
 });
-
+*/
 //Update
 /*
 test("Should update", async () => {
@@ -117,7 +120,7 @@ test("should delete", async () => {
 test("should list out product sets", async () => {
   const config = {
     method: "GET",
-    url: `${baseUrl}/${catalogId}/product_sets`,
+    url: `${baseUrl}/${catalogId}/product_sets?fields=products.limit(1000){retailer_id}`,
     headers: { "Content-Type": "application/json" },
     params: {
       access_token: userAccessToken,
@@ -150,17 +153,101 @@ test("should create product sets", async () => {
 });
 */
 //Delete product sets
-/*
-test("should delete", async () => {
+// test("should delete", async () => {
+//   const config = {
+//     method: "DELETE",
+//     url: `${baseUrl}/3338560996270975`,
+//     headers: { "Content-Type": "application/json" },
+//     params: {
+//       access_token: userAccessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+/** Page Api */
+//Get page all page id
+// test("List Test Id", async () => {
+//   const config = {
+//     method: "GET",
+//     url: `${baseUrl}/100053305697824/assigned_pages`,
+//     headers: { "Content-Type": "application/json" },
+//     params: {
+//       access_token: userAccessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// })
+
+// Get all page posts
+// test("Get Page Posts", async () => {
+//   const config = {
+//     method: "GET",
+//     url: `${baseUrl}/321602281230511/feed`,
+//     headers: { "Content-Type": "application/json" },
+//     params: {
+//       access_token: userAccessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+// Get a page post
+// test("Get a Page Post", async () => {
+//   const config = {
+//     method: "GET",
+//     url: `${baseUrl}/321602281230511_3991498390907530`,
+//     headers: { "Content-Type": "application/json" },
+//     params: {
+//       access_token: userAccessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+// Get a page post (fields=likes.summary(true), fields=reactions.summary(total_count))
+test("Get a Page Post", async () => {
   const config = {
-    method: "DELETE",
-    url: `${baseUrl}/442739993383066`,
+    method: "GET",
+    url: `${baseUrl}/321602281230511_4037821886275180/?fields=likes.summary(true)`,
     headers: { "Content-Type": "application/json" },
     params: {
       access_token: userAccessToken,
-    },   
+    },
   };
   const res = await functions.request(config);
   console.log(res);
 });
-*/
+
+// Update a page post
+// test("Get a Page Post", async () => {
+//   const msg = ''
+//   const config = {
+//     method: "GET",
+//     url: `${baseUrl}/321602281230511_3991498390907530?message=${msg}`,
+//     headers: { "Content-Type": "application/json" },
+//     params: {
+//       access_token: userAccessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+// Delete a page post
+// test("Delete a Page Post", async () => {
+//   const config = {
+//     method: "DELETE",
+//     url: `${baseUrl}/...page-post-id...`,
+//     headers: { "Content-Type": "application/json" },
+//     params: {
+//       access_token: userAccessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
