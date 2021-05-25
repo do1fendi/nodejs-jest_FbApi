@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 const FormData = require("form-data");
-const fs = require('fs');
+const fs = require("fs");
 //新台灣食堂
 const kitchenToken =
   "EAAERSOBI6tkBALZAlZAmXgD9HzY9NsBqnnys6rk6Lyihz3se7HT9IOLSYxcVJzIzrsd8Du8BwbmO8qhSo28eINh1crezHwkAZBSGIC1gom6ZAnFoYWyZBKQOOHPGIEoBesASZAODcZA5Wsx1EEh1SdkkZB7RpmMinjOBa345IU2chrVLZBrH3nEx7";
@@ -18,20 +18,49 @@ const siloahTravelToken =
 //     .then(res => res.json())
 //     .then(json => console.log(json));
 
-
-
 // Upload photo unpublished
+var formdata = new FormData();
+formdata.append("source", fs.createReadStream("./images/katak.png"));
 
-// var formdata = new FormData();
-// formdata.append("source", fs.createReadStream("./images/FCGUc9K.png"));
+var requestOptions = {
+  method: "POST",
+  body: formdata,
+  redirect: "follow",
+};
+//param "temporary=true" need to be put if photo is used in a scheduled post
+fetch(
+  `https://graph.facebook.com/v10.0/100868584925473/photos?access_token=${kitchenToken}&published=false&temporary=true`,
+  requestOptions
+)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.log("error", error));
+
+// Post multiple pics to a page
+// let body = JSON.stringify ([{media_fbid:"317892853223044"},{media_fbid:"317892969889699"}]);
 
 // var requestOptions = {
-//   method: 'POST',
-//   body: formdata,
-//   redirect: 'follow'
+//   method: "POST",
+//   // body: `message=Testing multi-photo post!&attached_media[0]={media_fbid:1002088839996}&attached_media[1]={media_fbid:1002088840149}&access_token=EAAERSOBI6tkBALZAlZAmXgD9HzY9NsBqnnys6rk6Lyihz3se7HT9IOLSYxcVJzIzrsd8Du8BwbmO8qhSo28eINh1crezHwkAZBSGIC1gom6ZAnFoYWyZBKQOOHPGIEoBesASZAODcZA5Wsx1EEh1SdkkZB7RpmMinjOBa345IU2chrVLZBrH3nEx7`,
+//   headers: {
+//     "Content-Type": "application/x-www-form-urlencoded"
+//   },
 // };
 
-// fetch("https://graph.facebook.com/v10.0/100868584925473/photos?access_token=EAAERSOBI6tkBALZAlZAmXgD9HzY9NsBqnnys6rk6Lyihz3se7HT9IOLSYxcVJzIzrsd8Du8BwbmO8qhSo28eINh1crezHwkAZBSGIC1gom6ZAnFoYWyZBKQOOHPGIEoBesASZAODcZA5Wsx1EEh1SdkkZB7RpmMinjOBa345IU2chrVLZBrH3nEx7&published=false", requestOptions)
-//   .then(response => response.text())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
+// fetch(
+//   `https://graph.facebook.com/v8.0/100868584925473/photos?message=Testing multi-photo post!&attached_media[0]={media_fbid:1002088839996}&attached_media[1]={media_fbid:1002088840149}&access_token=EAAERSOBI6tkBALZAlZAmXgD9HzY9NsBqnnys6rk6Lyihz3se7HT9IOLSYxcVJzIzrsd8Du8BwbmO8qhSo28eINh1crezHwkAZBSGIC1gom6ZAnFoYWyZBKQOOHPGIEoBesASZAODcZA5Wsx1EEh1SdkkZB7RpmMinjOBa345IU2chrVLZBrH3nEx7`,
+//   requestOptions
+// )
+//   .then((response) => response.text())
+//   .then((result) => console.log(result))
+//   .catch((error) => console.log("error", error));
+
+// fetch("https://graph.facebook.com/v10.0/100868584925473/photos", {
+//   body: "message=Testing multi-photo post!&attached_media[0]={media_fbid:1002088839996}&attached_media[1]={media_fbid:1002088840149}&access_token=EAAERSOBI6tkBALZAlZAmXgD9HzY9NsBqnnys6rk6Lyihz3se7HT9IOLSYxcVJzIzrsd8Du8BwbmO8qhSo28eINh1crezHwkAZBSGIC1gom6ZAnFoYWyZBKQOOHPGIEoBesASZAODcZA5Wsx1EEh1SdkkZB7RpmMinjOBa345IU2chrVLZBrH3nEx7",
+//   headers: {
+//     "Content-Type": "application/x-www-form-urlencoded"
+//   },
+//   method: "POST"
+// }).then((response) => response.text())
+//   .then((result) => console.log(result))
+//   .catch((error) => console.log("error", error));

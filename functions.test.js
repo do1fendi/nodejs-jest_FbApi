@@ -5,14 +5,22 @@ const fs = require("fs");
 //   "EAAOvYeYLMXgBAI2zBxaZCSznVzEWtG40JbQMHkb5Tc7Qvn5l1vYuTk9MjEmdADN7YzCqAQDLUsTmNjlkrM5S3OKZB8SLhg4hFqnfJz3EUKUMUu19x6T0wOqKCSm7hvtdZA1XOCIcjSxKOFGElEK9vi04h6cn7Oom2zphDISmns3sZAKhWtiDKHyeMVAqTD6tEdsZCNDXjGgZDZD";
 
 //新台灣食堂
-// const userAccessToken =
-//   "EAAERSOBI6tkBALZAlZAmXgD9HzY9NsBqnnys6rk6Lyihz3se7HT9IOLSYxcVJzIzrsd8Du8BwbmO8qhSo28eINh1crezHwkAZBSGIC1gom6ZAnFoYWyZBKQOOHPGIEoBesASZAODcZA5Wsx1EEh1SdkkZB7RpmMinjOBa345IU2chrVLZBrH3nEx7";
-//跟著董事長遊台灣
-const userAccessToken = "EAAERSOBI6tkBAM2MZAvZAjgL3kcI4SRzYbuv5k1OZBIRznoexUie3W16WUylwZA5sDHOM10ZAZAYly9C9belUcdHcUEwpE9lF1aB2xt4vgvN2ARwcyUrqmyOu77Y8hQuZCpms05h00NXWFKajdTb2OatW6ufDIHvF4ZAzmj88ZCONrZB0MMQQZAeaRE";
+const userAccessToken =
+  "EAAERSOBI6tkBALZAlZAmXgD9HzY9NsBqnnys6rk6Lyihz3se7HT9IOLSYxcVJzIzrsd8Du8BwbmO8qhSo28eINh1crezHwkAZBSGIC1gom6ZAnFoYWyZBKQOOHPGIEoBesASZAODcZA5Wsx1EEh1SdkkZB7RpmMinjOBa345IU2chrVLZBrH3nEx7";
+// 跟著董事長遊台灣
+// const userAccessToken = "EAAERSOBI6tkBAM2MZAvZAjgL3kcI4SRzYbuv5k1OZBIRznoexUie3W16WUylwZA5sDHOM10ZAZAYly9C9belUcdHcUEwpE9lF1aB2xt4vgvN2ARwcyUrqmyOu77Y8hQuZCpms05h00NXWFKajdTb2OatW6ufDIHvF4ZAzmj88ZCONrZB0MMQQZAeaRE";
+
+//System user for Siloah App
+// const userAccessToken = "EAAERSOBI6tkBAOsxHmKdBm8KKFWgcj4MNDArddAHXZA3RjUr4kM3HaDsMzAmeFJJxw2k1q7ZCAom1HZCpYexz0mdT5yBLp34kkxhfJVP49idZA6lpRZC3yS8qUkQLt1FP6u59YeZCNXvby3kVQKud4Nh83XjbNqCKgWDjFnxnQ9ODcogQCMTP7";
 
 const catalogId = "889207771614903";
 const baseUrl = "https://graph.facebook.com/v10.0";
+
+// 新台灣食堂
 const pageId = "100868584925473";
+
+// 跟著董事長遊台灣
+// const pageId = "321602281230511";
 
 /** Product Catalog API */
 //Get all product list
@@ -217,18 +225,102 @@ test("should create product sets", async () => {
 //   console.log(res);
 // });
 
-// Upload a photo to page unpublished 
+// Post and publish multiple photos to page
+// test("Post photo", async () => {
+//   const pic = JSON.stringify ([{"media_fbid":"318509079828088"},{"media_fbid":"318509173161412"},{"media_fbid":"318509239828072"},{"media_fbid":"318509356494727"}]);
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/${pageId}/feed`,
+//     headers: { "Content-Type": "application/json" },
+//     params: { access_token: userAccessToken, message: "Hi all from Siloah", attached_media: pic },
+
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+// Create an unpublished page post
+// test("Create unpublished post", async () => {
+//   const msg = "Unpublised Post";
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/${pageId}/feed`,
+//     headers: { "Content-Type": "application/json" },
+//     params: { access_token: userAccessToken, published: false, message: msg },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+// Publish an unpublished page post
+// test("Publish unpublished post", async () => {
+//   const postId = "100868584925473_318542293158100";
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/${postId}/`,
+//     headers: { "Content-Type": "application/json" },
+//     params: { access_token: userAccessToken, is_published: true },
+//   }
+//   const res = await functions.request(config);
+//   console.log(res);
+// })
+
+
+//Schedule a page post
+// test("Create Schedule post", async () => {
+//   const msg = 'A scheduled post'
+//   const time = new Date("May  25, 2021 14:58:00").getTime()/1000.0
+//    console.log(time)
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/${pageId}/feed`,
+//     headers: {"Content-Type":"application/json"},
+//     params: { access_token: userAccessToken, published: false, scheduled_publish_time: time, message: msg }
+//   }
+//   const res = await functions.request(config)
+//   console.log(res)
+// })
+
+
+// Schedule a page post with multiple photos
+test("Post photo", async () => {
+  const msg = 'Scheduling photos'
+  const time = new Date("May  25, 2021 16:15:00").getTime()/1000.0
+  const pic = JSON.stringify ([{"media_fbid":"318631413149188"},{"media_fbid":"318631483149181"},{"media_fbid":"318631516482511"},{"media_fbid":"318631569815839"}]);
+  const config = {
+    method: "POST",
+    url: `${baseUrl}/${pageId}/feed`,
+    headers: { "Content-Type": "application/json" },
+    params: { access_token: userAccessToken, message: msg, attached_media: pic, published: false, scheduled_publish_time: time, unpublished_content_type:'SCHEDULED' },
+  };
+  const res = await functions.request(config);
+  console.log(res);
+});
+
+// GET Schedule a page post
+// Still no success
+// test("GET Schedule post", async () => {
+//   const config = {
+//     method: "GET",
+//     url: `${baseUrl}/${pageId}/feed`,
+//     headers: {"Content-Type":"application/json"},
+//     params: { access_token: userAccessToken, fields: 'is_published'}
+//   }
+//   const res = await functions.request(config)
+//   console.log(res)
+// })
+
+// Upload a photo to page unpublished
 // error need to use fetch
 // test("Upload photo", async () => {
 //   let formdata = new FormData();
-//   formdata.append("source", fs.createReadStream("./images/FCGUc9K.png"));
+//   formdata.append("source", fs.createReadStream("./images/katak.png"));
 
 //   const config = {
 //     method: "POST",
-//     // url: `${baseUrl}/${pageId}/photos/`,
-//     url:"https://graph.facebook.com/v10.0/100868584925473/photos?access_token=EAAERSOBI6tkBALZAlZAmXgD9HzY9NsBqnnys6rk6Lyihz3se7HT9IOLSYxcVJzIzrsd8Du8BwbmO8qhSo28eINh1crezHwkAZBSGIC1gom6ZAnFoYWyZBKQOOHPGIEoBesASZAODcZA5Wsx1EEh1SdkkZB7RpmMinjOBa345IU2chrVLZBrH3nEx7&published=false",
-//     // headers: { "Content-Type": "multipart/form-data" },
-//     // params: { access_token: userAccessToken, published: false },
+//     url: `${baseUrl}/${pageId}/photos/`,    
+//     headers: { "Content-Type": "multipart/form-data" },
+//     params: { access_token: userAccessToken, published: false },
 //     data: formdata,
 //   };
 //   const res = await functions.request(config);
@@ -245,7 +337,7 @@ test("should create product sets", async () => {
 //       metric: 'page_impressions_unique,page_engaged_users',
 //       access_token: userAccessToken,
 //     },
-    
+
 //   };
 //   const res = await functions.request(config);
 //   console.log(res);
@@ -261,12 +353,11 @@ test("should create product sets", async () => {
 //       metric: 'post_reactions_like_total,post_reactions_love_total,post_reactions_wow_total,post_impressions_unique,post_engaged_users',
 //       access_token: userAccessToken,
 //     },
-    
+
 //   };
 //   const res = await functions.request(config);
 //   console.log(JSON.stringify(res));
 // });
-
 
 // Get a page post Comment
 // test("Get a Page post comment", async () => {
@@ -274,15 +365,14 @@ test("should create product sets", async () => {
 //     method: "GET",
 //     url: `${baseUrl}/321602281230511_4049845858406116/comments`,
 //     headers: { "Content-Type": "application/json" },
-//     params: {      
+//     params: {
 //       access_token: userAccessToken,
 //     },
-    
+
 //   };
 //   const res = await functions.request(config);
 //   console.log(JSON.stringify(res));
 // });
-
 
 // Get a page post (fields=likes.summary(true), fields=reactions.summary(total_count))
 // test("Get a Page Post", async () => {
@@ -333,7 +423,7 @@ test("should create product sets", async () => {
 // test("Delete a Page Post", async () => {
 //   const config = {
 //     method: "DELETE",
-//     url: `${baseUrl}/100868584925473_315385013473828`,
+//     url: `${baseUrl}/100868584925473_318601073152222`,
 //     headers: { "Content-Type": "application/json" },
 //     params: {
 //       access_token: userAccessToken,
