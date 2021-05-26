@@ -233,7 +233,6 @@ test("should create product sets", async () => {
 //     url: `${baseUrl}/${pageId}/feed`,
 //     headers: { "Content-Type": "application/json" },
 //     params: { access_token: userAccessToken, message: "Hi all from Siloah", attached_media: pic },
-
 //   };
 //   const res = await functions.request(config);
 //   console.log(res);
@@ -283,19 +282,19 @@ test("should create product sets", async () => {
 
 
 // Schedule a page post with multiple photos
-test("Post photo", async () => {
-  const msg = 'Scheduling photos'
-  const time = new Date("May  25, 2021 16:15:00").getTime()/1000.0
-  const pic = JSON.stringify ([{"media_fbid":"318631413149188"},{"media_fbid":"318631483149181"},{"media_fbid":"318631516482511"},{"media_fbid":"318631569815839"}]);
-  const config = {
-    method: "POST",
-    url: `${baseUrl}/${pageId}/feed`,
-    headers: { "Content-Type": "application/json" },
-    params: { access_token: userAccessToken, message: msg, attached_media: pic, published: false, scheduled_publish_time: time, unpublished_content_type:'SCHEDULED' },
-  };
-  const res = await functions.request(config);
-  console.log(res);
-});
+// test("Post photo", async () => {
+//   const msg = 'Scheduling photos'
+//   const time = new Date("May  25, 2021 16:15:00").getTime()/1000.0
+//   const pic = JSON.stringify ([{"media_fbid":"318631413149188"},{"media_fbid":"318631483149181"},{"media_fbid":"318631516482511"},{"media_fbid":"318631569815839"}]);
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/${pageId}/feed`,
+//     headers: { "Content-Type": "application/json" },
+//     params: { access_token: userAccessToken, message: msg, attached_media: pic, published: false, scheduled_publish_time: time, unpublished_content_type:'SCHEDULED' },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
 
 // GET Schedule a page post
 // Still no success

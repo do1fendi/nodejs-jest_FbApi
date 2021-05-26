@@ -19,22 +19,22 @@ const siloahTravelToken =
 //     .then(json => console.log(json));
 
 // Upload photo unpublished
-var formdata = new FormData();
-formdata.append("source", fs.createReadStream("./images/katak.png"));
+// var formdata = new FormData();
+// formdata.append("source", fs.createReadStream("./images/katak.png"));
 
-var requestOptions = {
-  method: "POST",
-  body: formdata,
-  redirect: "follow",
-};
-//param "temporary=true" need to be put if photo is used in a scheduled post
-fetch(
-  `https://graph.facebook.com/v10.0/100868584925473/photos?access_token=${kitchenToken}&published=false&temporary=true`,
-  requestOptions
-)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
+// var requestOptions = {
+//   method: "POST",
+//   body: formdata,
+//   redirect: "follow",
+// };
+// //param "temporary=true" need to be put if photo is used in a scheduled post
+// fetch(
+//   `https://graph.facebook.com/v10.0/100868584925473/photos?access_token=${kitchenToken}&published=false&temporary=true`,
+//   requestOptions
+// )
+//   .then((response) => response.text())
+//   .then((result) => console.log(result))
+//   .catch((error) => console.log("error", error));
 
 // Post multiple pics to a page
 // let body = JSON.stringify ([{media_fbid:"317892853223044"},{media_fbid:"317892969889699"}]);
@@ -62,5 +62,25 @@ fetch(
 //   },
 //   method: "POST"
 // }).then((response) => response.text())
+//   .then((result) => console.log(result))
+//   .catch((error) => console.log("error", error));
+
+
+// post movie
+// var formdata = new FormData();
+// formdata.append("source", fs.createReadStream("./images/mov.mp4"));
+// // formdata.append("message", "Hello world")
+
+// var requestOptions = {
+//   method: "POST",
+//   body: formdata,
+//   redirect: "follow",
+// };
+
+// fetch(
+//   `https://graph.facebook.com/v10.0/100868584925473/videos?access_token=${kitchenToken}&description=hello videos`,
+//   requestOptions
+// )
+//   .then((response) => response.text())
 //   .then((result) => console.log(result))
 //   .catch((error) => console.log("error", error));
