@@ -1,8 +1,8 @@
 const functions = require("./functions");
 const FormData = require("form-data");
 const fs = require("fs");
-// const userAccessToken =
-//   "EAAOvYeYLMXgBAI2zBxaZCSznVzEWtG40JbQMHkb5Tc7Qvn5l1vYuTk9MjEmdADN7YzCqAQDLUsTmNjlkrM5S3OKZB8SLhg4hFqnfJz3EUKUMUu19x6T0wOqKCSm7hvtdZA1XOCIcjSxKOFGElEK9vi04h6cn7Oom2zphDISmns3sZAKhWtiDKHyeMVAqTD6tEdsZCNDXjGgZDZD";
+const systemUser =
+  "EAAOvYeYLMXgBAI2zBxaZCSznVzEWtG40JbQMHkb5Tc7Qvn5l1vYuTk9MjEmdADN7YzCqAQDLUsTmNjlkrM5S3OKZB8SLhg4hFqnfJz3EUKUMUu19x6T0wOqKCSm7hvtdZA1XOCIcjSxKOFGElEK9vi04h6cn7Oom2zphDISmns3sZAKhWtiDKHyeMVAqTD6tEdsZCNDXjGgZDZD";
 
 //新台灣食堂
 const userAccessToken =
@@ -21,6 +21,10 @@ const pageId = "100868584925473";
 
 // 跟著董事長遊台灣
 // const pageId = "321602281230511";
+
+//Instagram User Id
+const accessToken = "EAAERSOBI6tkBAEMooIecczpQ0KDFanPPJZA6YbWYSNO2bUgZB9TQ2TlPECXDhV1iW6KmU2ZChz9Trf60c8fuZChJwlNu9mLbZAfSPOk75IY3BRffRDp1GIVnErFKoTKe17QYsmb0ZCsk8Gh6TMbtHgTY8WI3VEAHnMQPkfZAaTBz6zBr0k7p27Y0fZAP1Bl9iWcqi5EgtHviVrYmgEZCYe2iamYqkgmSQVcTgynywdhjwvYC38IxgC71D"
+const instaUser = "17841401990254990";
 
 /** Product Catalog API */
 //Get all product list
@@ -212,6 +216,18 @@ test("should create product sets", async () => {
 // });
 
 // Post and publish a photo to page using url
+// test("Post Text", async () => {
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/${pageId}/feed`,
+//     headers: { "Content-Type": "application/json" },
+//     params: { access_token: userAccessToken, message: "Hi all" },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+// Post and publish a photo to page using url
 // test("Post photo", async () => {
 //   const photoPath =
 //     "https://www.taiwanviptravel.com/wp-content/uploads/2020/12/A7308401-1024x576.jpg";
@@ -264,7 +280,6 @@ test("should create product sets", async () => {
 //   console.log(res);
 // })
 
-
 //Schedule a page post
 // test("Create Schedule post", async () => {
 //   const msg = 'A scheduled post'
@@ -279,7 +294,6 @@ test("should create product sets", async () => {
 //   const res = await functions.request(config)
 //   console.log(res)
 // })
-
 
 // Schedule a page post with multiple photos
 // test("Post photo", async () => {
@@ -317,7 +331,7 @@ test("should create product sets", async () => {
 
 //   const config = {
 //     method: "POST",
-//     url: `${baseUrl}/${pageId}/photos/`,    
+//     url: `${baseUrl}/${pageId}/photos/`,
 //     headers: { "Content-Type": "multipart/form-data" },
 //     params: { access_token: userAccessToken, published: false },
 //     data: formdata,
@@ -352,7 +366,6 @@ test("should create product sets", async () => {
 //       metric: 'post_reactions_like_total,post_reactions_love_total,post_reactions_wow_total,post_impressions_unique,post_engaged_users',
 //       access_token: userAccessToken,
 //     },
-
 //   };
 //   const res = await functions.request(config);
 //   console.log(JSON.stringify(res));
@@ -389,10 +402,10 @@ test("should create product sets", async () => {
 
 // Update a page post
 // test("Update a Page Post", async () => {
-//   const msg = 'Welcome to  Siloah Travel'
+//   const msg = 'Videos changed'
 //   const config = {
 //     method: "POST",
-//     url: `${baseUrl}/100868584925473_315387460140250?message=${msg}`,
+//     url: `${baseUrl}/100868584925473_319127986432864?message=${msg}`,
 //     headers: { "Content-Type": "application/json" },
 //     params: {
 //       access_token: userAccessToken,
@@ -431,3 +444,55 @@ test("should create product sets", async () => {
 //   const res = await functions.request(config);
 //   console.log(res);
 // });
+
+
+
+/** Instagram API */
+
+// Insights
+// test("Instagram Insights", async () => {
+//   const config = {
+//     method: "GET",
+//     url: `${baseUrl}/${instaUser}/insights`,
+//     params: {
+//       // metric: "audience_gender_age,online_followers",
+//       // period: "lifetime",
+//       metric: "impressions,reach",
+//       period: "days_28",
+//       access_token: accessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+// Business account
+// test("Instagram Insights", async () => {
+//   const pgId = '321602281230511'
+//   const config = {
+//     method: "GET",
+//     url: `${baseUrl}/${pgId}`,
+//     params: {
+//       fields: "instagram_business_account",
+//       access_token: accessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+
+// IG Media 
+test("Instagram Insights", async () => {
+  const mediaId = '17909096878707403'
+  const config = {
+    method: "GET",
+    url: `${baseUrl}/${mediaId}`,
+    params: {
+      fields: "like_count,media_product_type,comments_count,timestamp,media_type",
+      access_token: accessToken,
+    },
+  };
+  const res = await functions.request(config);
+  console.log(res);
+});

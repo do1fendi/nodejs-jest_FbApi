@@ -67,20 +67,20 @@ const siloahTravelToken =
 
 
 // post movie
-// var formdata = new FormData();
-// formdata.append("source", fs.createReadStream("./images/mov.mp4"));
-// // formdata.append("message", "Hello world")
+var formdata = new FormData();
+formdata.append("source", fs.createReadStream("./images/mov.mp4"));
+// formdata.append("description", "Hello world")
 
-// var requestOptions = {
-//   method: "POST",
-//   body: formdata,
-//   redirect: "follow",
-// };
+var requestOptions = {
+  method: "POST",
+  body: formdata,
+  redirect: "follow",
+};
 
-// fetch(
-//   `https://graph.facebook.com/v10.0/100868584925473/videos?access_token=${kitchenToken}&description=hello videos`,
-//   requestOptions
-// )
-//   .then((response) => response.text())
-//   .then((result) => console.log(result))
-//   .catch((error) => console.log("error", error));
+fetch(
+  `https://graph.facebook.com/v10.0/100868584925473/videos?access_token=${kitchenToken}&description=hello videos&title=This is Video`,
+  requestOptions
+)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.log("error", error));
