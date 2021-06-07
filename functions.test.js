@@ -23,7 +23,7 @@ const pageId = "100868584925473";
 // const pageId = "321602281230511";
 
 //Instagram User Id
-const accessToken = "EAAERSOBI6tkBAEMooIecczpQ0KDFanPPJZA6YbWYSNO2bUgZB9TQ2TlPECXDhV1iW6KmU2ZChz9Trf60c8fuZChJwlNu9mLbZAfSPOk75IY3BRffRDp1GIVnErFKoTKe17QYsmb0ZCsk8Gh6TMbtHgTY8WI3VEAHnMQPkfZAaTBz6zBr0k7p27Y0fZAP1Bl9iWcqi5EgtHviVrYmgEZCYe2iamYqkgmSQVcTgynywdhjwvYC38IxgC71D"
+const accessToken = "EAAERSOBI6tkBAHkM4T6XVij7qiefyqR8MgVbX4yXpj0aaWW6QSMTHMftIIesignaQT7482Ii21m1vTzUiyRsXUEQbgQ4BsoUzZBpYaZBxrZC8HRUGACAe5UC1FRDyPwMPU4jEhRxxuGPnePkttEEsDjyprJPYgiQomwH1ZBAAQZDZD"
 const instaUser = "17841401990254990";
 
 /** Product Catalog API */
@@ -450,21 +450,22 @@ test("should create product sets", async () => {
 /** Instagram API */
 
 // Insights
-// test("Instagram Insights", async () => {
-//   const config = {
-//     method: "GET",
-//     url: `${baseUrl}/${instaUser}/insights`,
-//     params: {
-//       // metric: "audience_gender_age,online_followers",
-//       // period: "lifetime",
-//       metric: "impressions,reach",
-//       period: "days_28",
-//       access_token: accessToken,
-//     },
-//   };
-//   const res = await functions.request(config);
-//   console.log(res);
-// });
+test("Instagram Insights", async () => {
+  const mediaId = '17874561832219888'
+  const config = {
+    method: "GET",
+    url: `${baseUrl}/${mediaId}/insights`,
+    params: {
+      // metric: "audience_gender_age,online_followers",
+      // period: "lifetime",
+      metric: "engagement,impressions,reach,saved",
+      //period: "days_28",
+      access_token: accessToken,
+    },
+  };
+  const res = await functions.request(config);
+  console.log(JSON.stringify(res));
+});
 
 // Business account
 // test("Instagram Insights", async () => {
@@ -481,18 +482,141 @@ test("should create product sets", async () => {
 //   console.log(res);
 // });
 
+// IG Media upload photo (create IG Container)
+// test("Upload photo", async () => {
+//   const image_url = 'https://www.taiwanviptravel.com/wp-content/uploads/2021/06/cruisingCropped.jpg';
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/${instaUser}/media`,
+//     params:{
+//       image_url: image_url,
+//       caption: 'A caption for the photo. Like the app, you can include hashtags (e.g., #crazywildebeest) and usernames of Instagram users (e.g., @natgeo). @Mentioned Instagram users will receive a notification when you publish the media object container. Maximum 2200 characters, 30 hashtags, and 20 @ tags.',
+//       access_token: accessToken,
+//     }
+//   }
+//   const res = await functions.request(config);
+//   console.log(res);
+// })
 
-// IG Media 
-test("Instagram Insights", async () => {
-  const mediaId = '17909096878707403'
-  const config = {
-    method: "GET",
-    url: `${baseUrl}/${mediaId}`,
-    params: {
-      fields: "like_count,media_product_type,comments_count,timestamp,media_type",
-      access_token: accessToken,
-    },
-  };
-  const res = await functions.request(config);
-  console.log(res);
-});
+
+// IG Media upload video (create IG Container)
+// test("Upload video", async () => {
+//   const video_url = 'https://www.taiwanviptravel.com/wp-content/uploads/2021/06/cruisingCropped.mov';
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/${instaUser}/media`,
+//     params:{
+//       media_type: 'VIDEO',
+//       video_url: video_url,
+//       caption: 'A caption for the video. Like the app, you can include hashtags (e.g., #crazywildebeest) and usernames of Instagram users (e.g., @natgeo). @Mentioned Instagram users will receive a notification when you publish the media object container. Maximum 2200 characters, 30 hashtags, and 20 @ tags.',
+//       access_token: accessToken,
+//     }
+//   }
+//   const res = await functions.request(config);
+//   console.log(res);
+// })
+
+
+// IG Media publish photo/video or container that created before
+// test("Publish photo", async () => {
+//   const creation_id = '17901595759994721';
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/${instaUser}/media_publish`,
+//     params:{
+//       creation_id: creation_id,
+//       access_token: accessToken,
+//     }
+//   }
+//   const res = await functions.request(config);
+//   console.log(res);
+// })
+
+
+// IG Media Get All id
+// test("Instagram Insights", async () => {
+//   const config = {
+//     method: "GET",
+//     url: `${baseUrl}/${instaUser}/media`,
+//     params: {
+//       access_token: accessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+
+// IG Media Get Detail
+// test("Instagram IG Media", async () => {
+//   const mediaId = '17909096878707403'
+//   const config = {
+//     method: "GET",
+//     url: `${baseUrl}/${mediaId}`,
+//     params: {
+//       fields: "like_count,media_product_type,comments_count,timestamp,media_type",
+//       access_token: accessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+// IG Media Get Comment
+// test("Instagram IG Media", async () => {
+//   const mediaId = '17885954665947522'
+//   const config = {
+//     method: "GET",
+//     url: `${baseUrl}/${mediaId}/comments`,
+//     params: {
+//       access_token: accessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+// IG Media Create Comment
+// test("Instagram IG Media Create Comment", async () => {
+//   const mediaId = '17885954665947522';
+//   const msg = 'wow';
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/${mediaId}/comments`,
+//     params: {
+//       message: msg,
+//       access_token: accessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+// IG Media Update Comment
+// test("Instagram IG Media", async () => {
+//   const commentId = '18226800205012432'
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/${commentId}`,
+//     params: {
+//       hide: "true",
+//       access_token: accessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+// IG Media Delete Comment
+// test("Instagram IG Media", async () => {
+//   const commentId = '18226800205012432'
+//   const config = {
+//     method: "DELETE",
+//     url: `${baseUrl}/${commentId}`,
+//     params: {
+//       access_token: accessToken,
+//     },
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
