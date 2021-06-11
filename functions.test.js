@@ -6,7 +6,7 @@ const systemUser =
 
 //新台灣食堂
 const userAccessToken =
-  "EAAERSOBI6tkBACZCbR13BeXzjIkg25eDN0ZBMigYD2ojwkGJkY0YxTgq5ie2UjDXuZB094h6TGe92cZBPVGLNYpzJLJNBx2SYj2QRVDT6PFanbWJzUWTPC8WTkODox4lDs39C70qkhSqPHyif0pLQPniDZBno73AOL6w1Br64OuVehBCRsZARb";
+  "EAAERSOBI6tkBANeGlUvUWACUwZCZAmROufG8NAlxsmmyB6ZC6UVL9rvZC9ZBZCil7ylRtn2jBpO6GhYjarbwZAJL00osRGpe6qOTUUWgKuKPNfKO8JTJ5CD2KiFSLmi70oAMixjjGu6KdT6LrdAMwBGJpiuHarBjqhDLyfrwWHz7gZDZD";
 // 跟著董事長遊台灣
 // const userAccessToken = "EAAERSOBI6tkBAM2MZAvZAjgL3kcI4SRzYbuv5k1OZBIRznoexUie3W16WUylwZA5sDHOM10ZAZAYly9C9belUcdHcUEwpE9lF1aB2xt4vgvN2ARwcyUrqmyOu77Y8hQuZCpms05h00NXWFKajdTb2OatW6ufDIHvF4ZAzmj88ZCONrZB0MMQQZAeaRE";
 
@@ -16,6 +16,9 @@ const userAccessToken =
 const catalogId = "889207771614903";
 const baseUrl = "https://graph.facebook.com/v10.0";
 
+// User Id
+const userId = "10158707635299213";
+
 // 新台灣食堂
 const pageId = "100868584925473";
 
@@ -24,7 +27,7 @@ const pageId = "100868584925473";
 
 //Instagram User Id
 const accessToken =
-  "EAAERSOBI6tkBANHAZBab1KFslP0LXYD52xi6UhGqPyOCdIZAXgEn9MLmeg0JHWZAtPZAXqfAXLLBThhslg8JlTSZARDmHM9T590d5sqRigJwWJ3agZCJdQ9SwU6VlPn5m1ZAIoAZBTOZAHxxsMuPLh3tZB5tzoZCV6qlVSZCtbnj1NLZAbQZDZD";
+  "EAAERSOBI6tkBAAjD7u1jqBLT99kdfuWNinksVxuZBkgJdmeuZA1emZBJjXIo4u9rYBW77onRafxPSdIdd4fZCZCjGpr4jUMcgD62kIjP0rxtLEziWOdB1H9qpN8dX4umQZCZAz14E6a7ZBRGOWtin2RtTTOZBG99b4qEep1DYWf6wnESWHOShwzVD";
 const instaUser = "17841401990254990";
 
 /** Product Catalog API */
@@ -201,6 +204,68 @@ test("should create product sets", async () => {
 //   const res = await functions.request(config);
 //   console.log(res);
 // })
+
+
+// Get pages list
+// test("Pages list", async () => {
+//   const config = {
+//     method: 'GET',
+//     url: `${baseUrl}/${userId}/accounts`,
+//     params: {
+//       access_token: userAccessToken
+//     }
+//   }
+//   const res = await functions.request(config);
+//   console.log(res)
+// }) 
+
+// Get pages Detail
+// test("Page Detail", async () => {  
+//   const config = {
+//     method: 'GET',
+//     url: `${baseUrl}/${pageId}`,
+//     params: {
+//       fields: "about,attire,bio,location,parking,hours,emails,website,phone,description",
+//       access_token: accessToken
+//     }
+//   }
+//   const res = await functions.request(config);
+//   console.log(res)
+// })
+
+
+// Update pages Detail
+// test("Page Detail", async () => {
+//   const about = 'All about Foods';
+//   const location = {
+//     city: 'Taipei',
+//     country: 'Taiwan',
+//     latitude: 25.042136360333,
+//     longitude: 121.54390438602,
+//     street: '大安區復興南路一段137號14樓之3',
+//     zip: '106'
+//   }
+//   const phone = '0970888888';
+//   const email = 'marketing@sansun.com';
+//   const description = 'delivery_and_pickup_option_info. Each String represent the url link to a delivery and pick up option webpage. The API filters out duplicated urls as well as invalidated urls';
+//   const website = 'https://www.taiwanviptravel.com';
+//   const config = {
+//     method: 'POST',
+//     url: `${baseUrl}/${pageId}`,
+//     params: {
+//       about: about,
+//       location: location,
+//       phone: phone,
+//       emails: [email],
+//       description: description,
+//       website: website, 
+//       access_token: accessToken
+//     }
+//   }
+//   const res = await functions.request(config);
+//   console.log(res)
+// })
+
 
 // Get all page posts
 // test("Get Page Posts", async () => {
