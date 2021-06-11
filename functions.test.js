@@ -27,7 +27,7 @@ const pageId = "100868584925473";
 
 //Instagram User Id
 const accessToken =
-  "EAAERSOBI6tkBAAjD7u1jqBLT99kdfuWNinksVxuZBkgJdmeuZA1emZBJjXIo4u9rYBW77onRafxPSdIdd4fZCZCjGpr4jUMcgD62kIjP0rxtLEziWOdB1H9qpN8dX4umQZCZAz14E6a7ZBRGOWtin2RtTTOZBG99b4qEep1DYWf6wnESWHOShwzVD";
+  "EAAERSOBI6tkBADlpvevFiGE4IVMYZAZC8aeYyI4BMzUhe5bNEtIbwmVFxPPyaYfIffvZC1dPI4Gbu5yN9epCnRx3NHq7tnMBaDLLkG0gt2aqRiuhOTniSNmpBhvkDjbWt8un9DpugyJ6O309wdK7YUM8vjTfaK7HFGiBsZAZCkWTZCZAZCv5TAfp";
 const instaUser = "17841401990254990";
 
 /** Product Catalog API */
@@ -225,7 +225,7 @@ test("should create product sets", async () => {
 //     method: 'GET',
 //     url: `${baseUrl}/${pageId}`,
 //     params: {
-//       fields: "about,attire,bio,location,parking,hours,emails,website,phone,description",
+//       fields: "about,attire,bio,location,parking,is_always_open,hours,emails,website,phone,description",
 //       access_token: accessToken
 //     }
 //   }
@@ -235,36 +235,61 @@ test("should create product sets", async () => {
 
 
 // Update pages Detail
-// test("Page Detail", async () => {
-//   const about = 'All about Foods';
-//   const location = {
-//     city: 'Taipei',
-//     country: 'Taiwan',
-//     latitude: 25.042136360333,
-//     longitude: 121.54390438602,
-//     street: '大安區復興南路一段137號14樓之3',
-//     zip: '106'
-//   }
-//   const phone = '0970888888';
-//   const email = 'marketing@sansun.com';
-//   const description = 'delivery_and_pickup_option_info. Each String represent the url link to a delivery and pick up option webpage. The API filters out duplicated urls as well as invalidated urls';
-//   const website = 'https://www.taiwanviptravel.com';
-//   const config = {
-//     method: 'POST',
-//     url: `${baseUrl}/${pageId}`,
-//     params: {
-//       about: about,
-//       location: location,
-//       phone: phone,
-//       emails: [email],
-//       description: description,
-//       website: website, 
-//       access_token: accessToken
-//     }
-//   }
-//   const res = await functions.request(config);
-//   console.log(res)
-// })
+test("Page Detail", async () => {
+  const about = 'All about Foods';
+  const location = {
+    city: 'Taipei',
+    country: 'Taiwan',
+    latitude: 25.042136360333,
+    longitude: 121.54390438602,
+    street: '大安區復興南路一段137號14樓之3',
+    zip: '106'
+  }
+  const phone = '0970888888';
+  const email = 'marketing@sansun.com';
+  const description = 'delivery_and_pickup_option_info. Each String represent the url link to a delivery and pick up option webpage. The API filters out duplicated urls as well as invalidated urls';
+  const website = 'https://www.taiwanviptravel.com';
+  const hours = {
+    mon_1_open: '09:00',
+    mon_1_close: '12:00',
+    mon_2_open: '13:00',
+    mon_2_close: '17:00',
+    tue_1_open: '09:00',
+    tue_1_close: '12:00',
+    tue_2_open: '13:00',
+    tue_2_close: '17:00',
+    wed_1_open: '09:00',
+    wed_1_close: '12:00',
+    wed_2_open: '13:00',
+    wed_2_close: '17:00',
+    thu_1_open: '09:00',
+    thu_1_close: '12:00',
+    thu_2_open: '13:00',
+    thu_2_close: '17:00',
+    fri_1_open: '09:00',
+    fri_1_close: '12:00',
+    fri_2_open: '13:00',
+    fri_2_close: '17:00',
+  };
+  const config = {
+    method: 'POST',
+    url: `${baseUrl}/${pageId}`,
+    params: {
+      about: about,
+      location: location,
+      phone: phone,
+      emails: [email],
+      description: description,
+      website: website,
+      // is_always_open: 'true',
+      // is_permanently_closed: 'true',
+      hours: hours,
+      access_token: accessToken
+    }
+  }
+  const res = await functions.request(config);
+  console.log(res)
+})
 
 
 // Get all page posts
