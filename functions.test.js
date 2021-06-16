@@ -6,7 +6,7 @@ const systemUser =
 
 //新台灣食堂
 const userAccessToken =
-  "EAAERSOBI6tkBANeGlUvUWACUwZCZAmROufG8NAlxsmmyB6ZC6UVL9rvZC9ZBZCil7ylRtn2jBpO6GhYjarbwZAJL00osRGpe6qOTUUWgKuKPNfKO8JTJ5CD2KiFSLmi70oAMixjjGu6KdT6LrdAMwBGJpiuHarBjqhDLyfrwWHz7gZDZD";
+  "EAAERSOBI6tkBAF5tkSJdrLj9ZBZAZBSTVFpxejSt3fBAkIJXMZAbIGrE9QZCjLkqJgz8v4btEVZCUpwVQ73c4yXUAmQmP8dT79jdCCsycxUkoAuHHRHgU2Gjy2gjNliHEJY2iKlEZB266kVEGuBACMpGOPvIiO5ZBAtbqVhD60fpZBZAS0KsXeNZBma";
 // 跟著董事長遊台灣
 // const userAccessToken = "EAAERSOBI6tkBAM2MZAvZAjgL3kcI4SRzYbuv5k1OZBIRznoexUie3W16WUylwZA5sDHOM10ZAZAYly9C9belUcdHcUEwpE9lF1aB2xt4vgvN2ARwcyUrqmyOu77Y8hQuZCpms05h00NXWFKajdTb2OatW6ufDIHvF4ZAzmj88ZCONrZB0MMQQZAeaRE";
 
@@ -27,7 +27,7 @@ const pageId = "100868584925473";
 
 //Instagram User Id
 const accessToken =
-  "EAAERSOBI6tkBADlpvevFiGE4IVMYZAZC8aeYyI4BMzUhe5bNEtIbwmVFxPPyaYfIffvZC1dPI4Gbu5yN9epCnRx3NHq7tnMBaDLLkG0gt2aqRiuhOTniSNmpBhvkDjbWt8un9DpugyJ6O309wdK7YUM8vjTfaK7HFGiBsZAZCkWTZCZAZCv5TAfp";
+  "EAAERSOBI6tkBAF5tkSJdrLj9ZBZAZBSTVFpxejSt3fBAkIJXMZAbIGrE9QZCjLkqJgz8v4btEVZCUpwVQ73c4yXUAmQmP8dT79jdCCsycxUkoAuHHRHgU2Gjy2gjNliHEJY2iKlEZB266kVEGuBACMpGOPvIiO5ZBAtbqVhD60fpZBZAS0KsXeNZBma";
 const instaUser = "17841401990254990";
 
 /** Product Catalog API */
@@ -235,61 +235,65 @@ test("should create product sets", async () => {
 
 
 // Update pages Detail
-test("Page Detail", async () => {
-  const about = 'All about Foods';
-  const location = {
-    city: 'Taipei',
-    country: 'Taiwan',
-    latitude: 25.042136360333,
-    longitude: 121.54390438602,
-    street: '大安區復興南路一段137號14樓之3',
-    zip: '106'
-  }
-  const phone = '0970888888';
-  const email = 'marketing@sansun.com';
-  const description = 'delivery_and_pickup_option_info. Each String represent the url link to a delivery and pick up option webpage. The API filters out duplicated urls as well as invalidated urls';
-  const website = 'https://www.taiwanviptravel.com';
-  const hours = {
-    mon_1_open: '09:00',
-    mon_1_close: '12:00',
-    mon_2_open: '13:00',
-    mon_2_close: '17:00',
-    tue_1_open: '09:00',
-    tue_1_close: '12:00',
-    tue_2_open: '13:00',
-    tue_2_close: '17:00',
-    wed_1_open: '09:00',
-    wed_1_close: '12:00',
-    wed_2_open: '13:00',
-    wed_2_close: '17:00',
-    thu_1_open: '09:00',
-    thu_1_close: '12:00',
-    thu_2_open: '13:00',
-    thu_2_close: '17:00',
-    fri_1_open: '09:00',
-    fri_1_close: '12:00',
-    fri_2_open: '13:00',
-    fri_2_close: '17:00',
-  };
-  const config = {
-    method: 'POST',
-    url: `${baseUrl}/${pageId}`,
-    params: {
-      about: about,
-      location: location,
-      phone: phone,
-      emails: [email],
-      description: description,
-      website: website,
-      // is_always_open: 'true',
-      // is_permanently_closed: 'true',
-      hours: hours,
-      access_token: accessToken
-    }
-  }
-  const res = await functions.request(config);
-  console.log(res)
-})
+// test("Page Detail", async () => {
+//   const about = 'All about Foods';
+//   const location = {
+//     city: 'Taipei',
+//     country: 'Taiwan',
+//     latitude: 25.042136360333,
+//     longitude: 121.54390438602,
+//     street: '大安區復興南路一段137號14樓之3',
+//     zip: '106'
+//   }
+//   const phone = '0970888888';
+//   const email = 'marketing@siloahtravel.com';
+//   const description = 'delivery_and_pickup_option_info. Each String represent the url link to a delivery and pick up option webpage. The API filters out duplicated urls as well as invalidated urls';
+//   const website = 'https://www.taiwanviptravel.com';
+//   const hours = {
+//     mon_1_open: '09:00',
+//     mon_1_close: '12:00',
+//     mon_2_open: '13:00',
+//     mon_2_close: '17:00',
+//     tue_1_open: '09:00',
+//     tue_1_close: '12:00',
+//     tue_2_open: '13:00',
+//     tue_2_close: '17:00',
+//     wed_1_open: '09:00',
+//     wed_1_close: '12:00',
+//     wed_2_open: '13:00',
+//     wed_2_close: '17:00',
+//     thu_1_open: '09:00',
+//     thu_1_close: '12:00',
+//     thu_2_open: '13:00',
+//     thu_2_close: '17:00',
+//     fri_1_open: '09:00',
+//     fri_1_close: '12:00',
+//     fri_2_open: '13:00',
+//     fri_2_close: '17:00',
+//   };
+//   const priceRange = '$';
+//   const impressum = 'Healthy Foods';
+//   const config = {
+//     method: 'POST',
+//     url: `${baseUrl}/${pageId}`,
+//     params: {
+//       // about: about,
+//       // location: location,
+//       // phone: phone,
+//       // emails: [email],
+//       // description: description,
+//       // website: website,
+//       // is_always_open: 'true',
+//       // is_permanently_closed: 'true',
+//       // hours: hours,
+//       price_range: priceRange,
+//       // impressum: impressum,
+//       access_token: accessToken
+//     }
+//   }
+//   const res = await functions.request(config);
+//   console.log(res)
+// })
 
 
 // Get all page posts
@@ -334,7 +338,7 @@ test("Page Detail", async () => {
 
 // Post and publish multiple photos to page
 // test("Post photo", async () => {
-//   const pic = JSON.stringify ([{"media_fbid":"318509079828088"},{"media_fbid":"318509173161412"},{"media_fbid":"318509239828072"},{"media_fbid":"318509356494727"}])
+//   const pic = JSON.stringify ([{"media_fbid":"332156808463315"}])
 //   // const pic = JSON.stringify ([{"media_fbid":"148291397359557"}])
 //   const config = {
 //     method: "POST",
@@ -390,9 +394,9 @@ test("Page Detail", async () => {
 
 // Schedule a page post with multiple photos
 // test("Post photo", async () => {
-//   const msg = 'Scheduling photos'
-//   const time = new Date("June 9, 2021 11:25:00").getTime()/1000.0
-//   const pic = JSON.stringify ([{"media_fbid":"328163518862644"},{"media_fbid":"328163592195970"},{"media_fbid":"328163648862631"},{"media_fbid":"328163712195958"}]);
+//   const msg = 'Photo scheduled set on june 15'
+//   const time = new Date("June 17, 2021 10:05:00").getTime()/1000.0
+//   const pic = JSON.stringify ([{"media_fbid":"332174975128165"}]);
 //   const config = {
 //     method: "POST",
 //     url: `${baseUrl}/${pageId}/feed`,
@@ -810,3 +814,34 @@ test("Page Detail", async () => {
 //   const res = await functions.request(config);
 //   console.log(res);
 // });
+
+/** App Access token */
+// test("Get App Access Token", async () => {
+//   const appId = '300479674903257'
+//   const appSecret = 'adc34dde400525763cf139b7ed890ba1'
+//   const config = {
+//     method:"GET",
+//     url:`${baseUrl}/oauth/access_token`,
+//     params:{
+//       client_id: appId,
+//       client_secret: appSecret,
+//       grant_type: 'client_credentials'
+//     }
+//   }
+//   const res =  await functions.request(config)
+//   console.log(res)
+// })
+
+/** Check Access token */
+// test("Get App Access Token", async () => {
+//   const config = {
+//     method:"GET",
+//     url:`${baseUrl}/debug_token`,
+//     params:{
+//       input_token: userAccessToken,
+//       access_token: userAccessToken
+//     }
+//   }
+//   const res =  await functions.request(config)
+//   console.log(res)
+// })

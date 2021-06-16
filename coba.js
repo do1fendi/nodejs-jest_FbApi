@@ -3,7 +3,7 @@ const FormData = require("form-data");
 const fs = require("fs");
 //新台灣食堂
 const kitchenToken =
-  "EAAERSOBI6tkBACZCbR13BeXzjIkg25eDN0ZBMigYD2ojwkGJkY0YxTgq5ie2UjDXuZB094h6TGe92cZBPVGLNYpzJLJNBx2SYj2QRVDT6PFanbWJzUWTPC8WTkODox4lDs39C70qkhSqPHyif0pLQPniDZBno73AOL6w1Br64OuVehBCRsZARb";
+  "EAAERSOBI6tkBAF5tkSJdrLj9ZBZAZBSTVFpxejSt3fBAkIJXMZAbIGrE9QZCjLkqJgz8v4btEVZCUpwVQ73c4yXUAmQmP8dT79jdCCsycxUkoAuHHRHgU2Gjy2gjNliHEJY2iKlEZB266kVEGuBACMpGOPvIiO5ZBAtbqVhD60fpZBZAS0KsXeNZBma";
 //跟著董事長遊台灣
 const siloahTravelToken =
   "EAAERSOBI6tkBAM2MZAvZAjgL3kcI4SRzYbuv5k1OZBIRznoexUie3W16WUylwZA5sDHOM10ZAZAYly9C9belUcdHcUEwpE9lF1aB2xt4vgvN2ARwcyUrqmyOu77Y8hQuZCpms05h00NXWFKajdTb2OatW6ufDIHvF4ZAzmj88ZCONrZB0MMQQZAeaRE";
@@ -19,22 +19,22 @@ const siloahTravelToken =
 //     .then(json => console.log(json));
 
 // Upload photo unpublished
-// var formdata = new FormData();
-// formdata.append("source", fs.createReadStream("./images/phone.png"));
+var formdata = new FormData();
+formdata.append("source", fs.createReadStream("./images/phone.png"));
 
-// var requestOptions = {
-//   method: "POST",
-//   body: formdata,
-//   redirect: "follow",
-// };
-// //param "temporary=true" need to be put if photo is used in a scheduled post
-// fetch(
-//   `https://graph.facebook.com/v10.0/100868584925473/photos?access_token=${kitchenToken}&published=false&temporary=true`,
-//   requestOptions
-// )
-//   .then((response) => response.text())
-//   .then((result) => console.log(result))
-//   .catch((error) => console.log("error", error));
+var requestOptions = {
+  method: "POST",
+  body: formdata,
+  redirect: "follow",
+};
+//param "temporary=true" need to be put if photo is used in a scheduled post
+fetch(
+  `https://graph.facebook.com/v10.0/100868584925473/photos?access_token=${kitchenToken}&published=false&temporary=true`,
+  requestOptions
+)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.log("error", error));
 
 // Post multiple pics to a page
 // let body = JSON.stringify ([{media_fbid:"317892853223044"},{media_fbid:"317892969889699"}]);
@@ -67,22 +67,22 @@ const siloahTravelToken =
 
 
 // post movie
-var formdata = new FormData();
-formdata.append("source", fs.createReadStream("./images/mov.mp4"));
-// const time = new Date("June 9, 2021 11:59:00").getTime()/1000.0
-// formdata.append("description", "Hello world")
-// &scheduled_publish_time=${time}
+// var formdata = new FormData();
+// formdata.append("source", fs.createReadStream("./images/mov.mp4"));
+// // const time = new Date("June 9, 2021 11:59:00").getTime()/1000.0
+// // formdata.append("description", "Hello world")
+// // &scheduled_publish_time=${time}
 
-var requestOptions = {
-  method: "POST",
-  body: formdata,
-  redirect: "follow",
-};
+// var requestOptions = {
+//   method: "POST",
+//   body: formdata,
+//   redirect: "follow",
+// };
 
-fetch(
-  `https://graph.facebook.com/v10.0/100868584925473/videos?access_token=${kitchenToken}&description=video is scheduled&published=false`,
-  requestOptions
-)
-  .then((response) => response.text())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
+// fetch(
+//   `https://graph.facebook.com/v10.0/100868584925473/videos?access_token=${kitchenToken}&description=video is scheduled&published=false`,
+//   requestOptions
+// )
+//   .then((response) => response.text())
+//   .then((result) => console.log(result))
+//   .catch((error) => console.log("error", error));
