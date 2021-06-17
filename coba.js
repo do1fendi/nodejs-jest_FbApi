@@ -3,16 +3,16 @@ const FormData = require("form-data");
 const fs = require("fs");
 //新台灣食堂
 const kitchenToken =
-  "EAAERSOBI6tkBAF5tkSJdrLj9ZBZAZBSTVFpxejSt3fBAkIJXMZAbIGrE9QZCjLkqJgz8v4btEVZCUpwVQ73c4yXUAmQmP8dT79jdCCsycxUkoAuHHRHgU2Gjy2gjNliHEJY2iKlEZB266kVEGuBACMpGOPvIiO5ZBAtbqVhD60fpZBZAS0KsXeNZBma";
+  "";
 //跟著董事長遊台灣
 const siloahTravelToken =
-  "EAAERSOBI6tkBAM2MZAvZAjgL3kcI4SRzYbuv5k1OZBIRznoexUie3W16WUylwZA5sDHOM10ZAZAYly9C9belUcdHcUEwpE9lF1aB2xt4vgvN2ARwcyUrqmyOu77Y8hQuZCpms05h00NXWFKajdTb2OatW6ufDIHvF4ZAzmj88ZCONrZB0MMQQZAeaRE";
+  "";
 
 // fetch(`https://graph.facebook.com/v10.0/100868584925473/feed?message=helloworld&access_token=${kitchenToken}`, { method: 'POST'})
 //     .then(res => res.json())
 //     .then(json => console.log(json));
 
-// const longLived = "EAAERSOBI6tkBANwNY6YpSotV0znWZCqO313QUGuPbYyV9j1lbMI86S6ZBIT0xxOZB2dK25kydqUMZA2ARikmZALZBkPJqrZBl92IopCRtO4kmTvPxdMRZB2vYknscvjaENMZCYq7QzFBrOhWe0c5N6aRRdts2CLBnoGFMizNTeeDe3gZDZD";
+// const longLived = "";
 
 // fetch(`https://graph.facebook.com/v10.0/10158707635299213/accounts?access_token=${longLived}`, { method: 'GET'})
 //     .then(res => res.json())

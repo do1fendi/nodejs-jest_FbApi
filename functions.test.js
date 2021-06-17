@@ -2,16 +2,16 @@ const functions = require("./functions");
 const FormData = require("form-data");
 const fs = require("fs");
 const systemUser =
-  "EAAOvYeYLMXgBAI2zBxaZCSznVzEWtG40JbQMHkb5Tc7Qvn5l1vYuTk9MjEmdADN7YzCqAQDLUsTmNjlkrM5S3OKZB8SLhg4hFqnfJz3EUKUMUu19x6T0wOqKCSm7hvtdZA1XOCIcjSxKOFGElEK9vi04h6cn7Oom2zphDISmns3sZAKhWtiDKHyeMVAqTD6tEdsZCNDXjGgZDZD";
+  "";
 
 //新台灣食堂
 const userAccessToken =
-  "EAAERSOBI6tkBAF5tkSJdrLj9ZBZAZBSTVFpxejSt3fBAkIJXMZAbIGrE9QZCjLkqJgz8v4btEVZCUpwVQ73c4yXUAmQmP8dT79jdCCsycxUkoAuHHRHgU2Gjy2gjNliHEJY2iKlEZB266kVEGuBACMpGOPvIiO5ZBAtbqVhD60fpZBZAS0KsXeNZBma";
+  "";
 // 跟著董事長遊台灣
-// const userAccessToken = "EAAERSOBI6tkBAM2MZAvZAjgL3kcI4SRzYbuv5k1OZBIRznoexUie3W16WUylwZA5sDHOM10ZAZAYly9C9belUcdHcUEwpE9lF1aB2xt4vgvN2ARwcyUrqmyOu77Y8hQuZCpms05h00NXWFKajdTb2OatW6ufDIHvF4ZAzmj88ZCONrZB0MMQQZAeaRE";
+// const userAccessToken = "";
 
 //System user for Siloah App
-// const userAccessToken = "EAAERSOBI6tkBAOsxHmKdBm8KKFWgcj4MNDArddAHXZA3RjUr4kM3HaDsMzAmeFJJxw2k1q7ZCAom1HZCpYexz0mdT5yBLp34kkxhfJVP49idZA6lpRZC3yS8qUkQLt1FP6u59YeZCNXvby3kVQKud4Nh83XjbNqCKgWDjFnxnQ9ODcogQCMTP7";
+// const userAccessToken = "";
 
 const catalogId = "889207771614903";
 const baseUrl = "https://graph.facebook.com/v10.0";
@@ -27,7 +27,7 @@ const pageId = "100868584925473";
 
 //Instagram User Id
 const accessToken =
-  "EAAERSOBI6tkBAF5tkSJdrLj9ZBZAZBSTVFpxejSt3fBAkIJXMZAbIGrE9QZCjLkqJgz8v4btEVZCUpwVQ73c4yXUAmQmP8dT79jdCCsycxUkoAuHHRHgU2Gjy2gjNliHEJY2iKlEZB266kVEGuBACMpGOPvIiO5ZBAtbqVhD60fpZBZAS0KsXeNZBma";
+  "";
 const instaUser = "17841401990254990";
 
 /** Product Catalog API */
