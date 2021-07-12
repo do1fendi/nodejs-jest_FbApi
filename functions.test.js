@@ -1,33 +1,30 @@
 const functions = require("./functions");
 const FormData = require("form-data");
 const fs = require("fs");
-const systemUser =
-  "";
 
-//新台灣食堂
+//System user for 新台灣食堂
 const userAccessToken =
-  "";
-// 跟著董事長遊台灣
-// const userAccessToken = "";
-
-//System user for Siloah App
-// const userAccessToken = "";
+  "EAAERSOBI6tkBALqBDMJuLBvWnAAyQAs5GbCAxNrJvk2HBS7i0W3R9jCZBlYnZBfNsqkCICWW6deQZACd03wR7WnYHaim4vg3fACxyDtPJnZB4uWUBx3l1EFgQiSii17hmtxDyL8JbIHib2djl7pcl2IVbBtOPsBV5KBZBBrRwOwbBAT7SiVEr";
+//System user for 跟著董事長遊台灣
+// const userAccessToken =
+//   "EAAERSOBI6tkBAMZCCyGd59Wj4CuJdd4PYNZCpDsnKLfZCPEkTu8QQiCxM0xPwIZAHSKcMNK6sLho065qMMmm3PS4HtB5O38dRHPDZBJw2S1C53crRj2KtTw0d6KHJOhJGMBZALfdb0LnJKL4CoaPynVItDlZCAbmZBZAZAui0b82B8DbsrRXYcWG5GiZAtXJ2xCNhZCVqmMxRK5U3wZDZD";
 
 const catalogId = "889207771614903";
-const baseUrl = "https://graph.facebook.com/v10.0";
+const baseUrl = "https://graph.facebook.com/v11.0";
 
 // User Id
 const userId = "10158707635299213";
 
 // 新台灣食堂
-const pageId = "100868584925473";
+// const pageId = "100868584925473";
 
 // 跟著董事長遊台灣
 // const pageId = "321602281230511";
 
+const pageId = "142692793114285";
 //Instagram User Id
-const accessToken =
-  "";
+// const accessToken =
+//   "";
 const instaUser = "17841401990254990";
 
 /** Product Catalog API */
@@ -205,7 +202,6 @@ test("should create product sets", async () => {
 //   console.log(res);
 // })
 
-
 // Get pages list
 // test("Pages list", async () => {
 //   const config = {
@@ -217,10 +213,10 @@ test("should create product sets", async () => {
 //   }
 //   const res = await functions.request(config);
 //   console.log(res)
-// }) 
+// })
 
 // Get pages Detail
-// test("Page Detail", async () => {  
+// test("Page Detail", async () => {
 //   const config = {
 //     method: 'GET',
 //     url: `${baseUrl}/${pageId}`,
@@ -232,7 +228,6 @@ test("should create product sets", async () => {
 //   const res = await functions.request(config);
 //   console.log(res)
 // })
-
 
 // Update pages Detail
 // test("Page Detail", async () => {
@@ -295,7 +290,6 @@ test("should create product sets", async () => {
 //   console.log(res)
 // })
 
-
 // Get all page posts
 // test("Get Page Posts", async () => {
 //   const config = {
@@ -316,7 +310,7 @@ test("should create product sets", async () => {
 //     method: "POST",
 //     url: `${baseUrl}/${pageId}/feed`,
 //     headers: { "Content-Type": "application/json" },
-//     params: { access_token: userAccessToken, message: "Hi all" },
+//     params: { access_token: userAccessToken, message: "Hi all for Testing" },
 //   };
 //   const res = await functions.request(config);
 //   console.log(res);
@@ -326,11 +320,12 @@ test("should create product sets", async () => {
 // test("Post photo", async () => {
 //   const photoPath =
 //     "https://www.taiwanviptravel.com/wp-content/uploads/2020/12/A7308401-1024x576.jpg";
+//     const time = new Date("July 2, 2021 17:30:00").getTime()/1000.0
 //   const config = {
 //     method: "POST",
 //     url: `${baseUrl}/${pageId}/photos`,
 //     headers: { "Content-Type": "application/json" },
-//     params: { url: photoPath, access_token: userAccessToken, message: "Hi all" },
+//     params: { url: photoPath, access_token: userAccessToken, message: "Hi all", published: 'false', scheduled_publish_time:'2021-07-02T17:35:00+08:00' },
 //   };
 //   const res = await functions.request(config);
 //   console.log(res);
@@ -375,7 +370,6 @@ test("should create product sets", async () => {
 //   const res = await functions.request(config);
 //   console.log(res);
 // })
-
 
 //Schedule a page post
 // test("Create Schedule post", async () => {
@@ -542,9 +536,6 @@ test("should create product sets", async () => {
 //   console.log(res);
 // });
 
-
-
-
 /** Instagram API */
 
 // User Insights
@@ -648,7 +639,7 @@ test("should create product sets", async () => {
 //     method: "GET",
 //     url: `${baseUrl}/${instaUser}/media`,
 //     params: {
-//       access_token: accessToken,
+//       access_token: userAccessToken,
 //     },
 //   };
 //   const res = await functions.request(config);
@@ -700,7 +691,6 @@ test("should create product sets", async () => {
 //   console.log(res);
 // });
 
-
 // IG Media Disable/enable Comment
 // test("Instagram IG Media Disable/enable Comment", async () => {
 //   const mediaId = '17921902201716718';
@@ -715,7 +705,6 @@ test("should create product sets", async () => {
 //   const res = await functions.request(config);
 //   console.log(res);
 // });
-
 
 // IG Media Update Comment
 // test("Instagram IG Media", async () => {
@@ -778,7 +767,6 @@ test("should create product sets", async () => {
 //   console.log(res);
 // });
 
-
 // IG Media Reply mention
 // still not working
 // test("Instagram IG Media", async () => {
@@ -797,7 +785,6 @@ test("should create product sets", async () => {
 //   const res = await functions.request(config);
 //   console.log(res);
 // });
-
 
 // IG User Mentioned Comment
 // commentId = The ID of the IG Comment in which the IG User has been @mentioned
@@ -845,3 +832,140 @@ test("should create product sets", async () => {
 //   const res =  await functions.request(config)
 //   console.log(res)
 // })
+
+/** Message Api */
+// Send Text
+// test("Send Text", async () => {
+//   const data = JSON.stringify({
+//     recipient: {
+//       id: "3757719384338269",
+//     },
+//     message: {
+//       text: "hello, world!",
+//     },
+//   });
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/me/messages`,
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     params: {
+//       access_token: userAccessToken,
+//     },
+//     data: data,
+//   };
+//   const res = await functions.request(config);
+//   console.log(res);
+// });
+
+// Send Image url
+// test("Send Image Url", async () => {
+//   const data = JSON.stringify({
+//     recipient: {
+//       id: "3757719384338269",
+//     },
+//     message: {
+//       attachment: {
+//         type: "image",
+//         payload: {
+//           url: "https://www.taiwanviptravel.com/wp-content/uploads/2020/08/Global5000_valued_across_the_globe.jpg",
+//           is_reusable: true,
+//         },
+//       },
+//     },
+//   });
+//   const config = {
+//     method: "POST",
+//     url: `${baseUrl}/me/messages`,
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     params: {
+//       access_token: userAccessToken,
+//     },
+//     data: data,
+//   };
+//   const res = await functions.request(config);
+//   console.log(res.data);
+// });
+
+// Send Image file
+// not working need to use fetch
+// test("Send Image File", async () => {
+//   var data = new FormData();
+//   data.append("source", fs.createReadStream("./images/ok.png"));
+//   data.append("recipient", JSON.stringify({ id: "3757719384338269" }));
+//   data.append(
+//     "message",
+//     JSON.stringify({
+//       attachment: { type: "image", payload: { is_reusable: true } },
+//     })
+//   );
+
+//   const config = {
+//     method: "POST",
+//     url: `https://graph.facebook.com/v10.0/me/messages?access_token=EAAERSOBI6tkBALqBDMJuLBvWnAAyQAs5GbCAxNrJvk2HBS7i0W3R9jCZBlYnZBfNsqkCICWW6deQZACd03wR7WnYHaim4vg3fACxyDtPJnZB4uWUBx3l1EFgQiSii17hmtxDyL8JbIHib2djl7pcl2IVbBtOPsBV5KBZBBrRwOwbBAT7SiVEr`,
+//     headers: {
+//       ...data.getHeaders(),
+//     },
+//     // params: {
+//     // access_token: userAccessToken,
+//     // recipient: JSON.stringify({
+//     //   id: "3757719384338269",
+//     // }),
+//     // message: JSON.stringify({
+//     //   attachment: {
+//     //     type: "file",
+//     //     payload: {
+//     //       is_reusable: false,
+//     //     },
+//     //   },
+//     // }),
+//     // },
+//     data: data,
+//   };
+//   const res = await functions.request(config);
+//   console.log(res.data);
+// });
+
+// Send Catalog
+test("Send Catalog", async () => {
+  const data = JSON.stringify({
+    recipient: {
+      id: "3757719384338269",
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "product",
+          elements: [
+            {
+              id: "3724830827538784"
+            },
+            {
+              id: "4021400094593257"
+            },
+            {
+              id: "3691334054242683"
+            }
+          ],
+        },
+      },
+    },
+  });
+  const config = {
+    method: "POST",
+    url: `${baseUrl}/me/messages`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    params: {
+      access_token: userAccessToken,
+    },
+    data: data,
+  };
+  const res = await functions.request(config);
+  console.log(res);
+});
